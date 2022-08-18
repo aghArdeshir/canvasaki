@@ -1,3 +1,5 @@
+import { Player } from "./Player.mjs";
+
 function createCanvas() {
   const canvas = document.createElement("canvas");
 
@@ -24,3 +26,22 @@ function createCanvas() {
 const canvas = createCanvas();
 
 document.body.prepend(canvas);
+
+function disableContextMenuOnRightClick() {
+  document.addEventListener("contextmenu", (event) => event.preventDefault());
+}
+
+disableContextMenuOnRightClick();
+
+const player = new Player(canvas);
+
+function draw() {
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  player.draw(ctx);
+
+  requestAnimationFrame(draw);
+}
+
+requestAnimationFrame(draw);
