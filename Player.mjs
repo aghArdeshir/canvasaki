@@ -5,7 +5,7 @@ export class Player {
   height = 40;
   targetX = this.x;
   targetY = this.y;
-  speed = 10;
+  speed = 50;
 
   interval;
 
