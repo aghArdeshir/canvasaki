@@ -34,6 +34,9 @@ function disableContextMenuOnRightClick() {
 disableContextMenuOnRightClick();
 
 const player = new Player(canvas);
+canvas.addEventListener("mousedown", (e) => {
+  player.setTarget(e.offsetX, e.offsetY);
+});
 
 function draw() {
   const ctx = canvas.getContext("2d");
