@@ -36,7 +36,7 @@ export class Player {
         this.y -= yTravel;
       }
 
-      // < 1 because all calculations above are using deciaml values
+      // < 1 because all calculations above are using decimal values
       if (
         Math.abs(this.targetX - this.x) < 1 &&
         Math.abs(this.targetY - this.y) < 1
