@@ -13,22 +13,34 @@ export class Player {
     this.targetX = targetX - this.width / 2;
     this.targetY = targetY - this.height / 2;
 
+    // Pythagorean theorem
+    const distanceX = Math.abs(this.targetX - this.x);
+    const distanceY = Math.abs(this.targetY - this.y);
+    const lypotenuseLength = Math.sqrt(distanceX ** 2 + distanceY ** 2);
+
     clearInterval(this.interval);
 
     this.interval = setInterval(() => {
+      const xTravel = distanceX / lypotenuseLength;
+      const yTravel = distanceY / lypotenuseLength;
+
       if (this.x < this.targetX) {
-        this.x++;
+        this.x += xTravel;
       } else if (this.x > this.targetX) {
-        this.x--;
+        this.x -= xTravel;
       }
 
       if (this.y < this.targetY) {
-        this.y++;
+        this.y += yTravel;
       } else if (this.y > this.targetY) {
-        this.y--;
+        this.y -= yTravel;
       }
 
-      if (this.targetX === this.x && this.targetY === this.y) {
+      // < 1 because all calculations above are using deciaml values
+      if (
+        Math.abs(this.targetX - this.x) < 1 &&
+        Math.abs(this.targetY - this.y) < 1
+      ) {
         clearInterval(this.interval);
       }
     }, 100 / this.speed);
