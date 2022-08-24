@@ -1,3 +1,4 @@
+import { Creep } from "./Creep.mjs";
 import { Player } from "./Player.mjs";
 
 function createCanvas() {
@@ -38,11 +39,15 @@ canvas.addEventListener("mousedown", (e) => {
   player.setTarget(e.offsetX, e.offsetY);
 });
 
+const creep = new Creep();
+creep.setTarget(creep.width, window.innerHeight - creep.height * 2);
+
 function draw() {
   const ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   player.draw(ctx);
+  creep.draw(ctx);
 
   requestAnimationFrame(draw);
 }
