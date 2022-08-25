@@ -47,7 +47,7 @@ export class Player {
   }
 
   draw(ctx) {
-    ctx.fillStyle = "#00ff0080";
+    ctx.fillStyle = "#0000ff80";
     ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 }

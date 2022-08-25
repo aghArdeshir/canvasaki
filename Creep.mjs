@@ -43,7 +43,7 @@ export class Creep {
   }
 
   draw(ctx) {
-    ctx.fillStyle = "#0000ff80";
+    ctx.fillStyle = "#ff000080";
     ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 }

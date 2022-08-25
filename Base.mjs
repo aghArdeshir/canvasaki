@@ -13,7 +13,7 @@ export class Base {
   }
 
   draw(ctx) {
-    ctx.fillStyle = "#ff000080";
+    ctx.fillStyle = "#00ff0080";
     ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 }
