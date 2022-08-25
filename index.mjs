@@ -1,10 +1,11 @@
+import { Base } from "./Base.mjs";
 import { Creep } from "./Creep.mjs";
 import { Player } from "./Player.mjs";
 
 function createCanvas() {
   const canvas = document.createElement("canvas");
 
-  const BORDER_WIDTH = 10;
+  const BORDER_WIDTH = 2;
   canvas.style.border = `${BORDER_WIDTH}px solid red`;
 
   function sizeCanvas() {
@@ -42,12 +43,16 @@ canvas.addEventListener("mousedown", (e) => {
 const creep = new Creep();
 creep.setTarget(creep.width, window.innerHeight - creep.height * 2);
 
+const base = new Base();
+creep.setTarget(base.getCenter().x, base.getCenter().y);
+
 function draw() {
   const ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   player.draw(ctx);
   creep.draw(ctx);
+  base.draw(ctx);
 
   requestAnimationFrame(draw);
 }
